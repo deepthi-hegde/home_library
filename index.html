@@ -368,6 +368,23 @@
       text-overflow: ellipsis;
     }
 
+    .due-date-subtext {
+      font-size: 0.70rem;
+      color: #78716c;
+      margin-top: 1px;
+      white-space: nowrap;
+    }
+
+    .due-date-subtext.is-overdue {
+      color: #dc2626;
+      font-weight: 700;
+    }
+
+    .book-card.is-overdue-card {
+      border-left: 3.5px solid #dc2626;
+      background: #fffafa;
+    }
+
     /* Column 5: Action Column */
     .col-action {
       display: flex;
@@ -977,6 +994,44 @@
     }
 
     
+        // Calculate default due date (30 days from borrowed date)
+    function calculateDueDate(dateStr) {
+      let borrowDate = null;
+      if (dateStr) {
+        // Try direct parsing
+        let parsed = new Date(dateStr);
+        if (!isNaN(parsed.getTime())) {
+          borrowDate = parsed;
+        } else {
+          // If in 'YYYY-MM-DD' or 'DD/MM/YYYY' or 'MM/DD/YYYY'
+          const parts = dateStr.toString().split(/[-/]/);
+          if (parts.length === 3) {
+            if (parts[0].length === 4) {
+              borrowDate = new Date(parts[0], parts[1] - 1, parts[2]);
+            } else if (parts[2].length === 4) {
+              borrowDate = new Date(parts[2], parts[0] - 1, parts[1]);
+            }
+          }
+        }
+      }
+
+      // If no valid date recorded yet for a borrowed book, default to today as the anchor
+      if (!borrowDate || isNaN(borrowDate.getTime())) {
+        borrowDate = new Date();
+      }
+
+      const dueDate = new Date(borrowDate.getTime() + (30 * 24 * 60 * 60 * 1000));
+      const now = new Date();
+      const isOverdue = now > dueDate;
+      const formatted = dueDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+
+      return {
+        formatted: formatted,
+        isOverdue: isOverdue,
+        text: isOverdue ? `Overdue (Due ${formatted})` : `Due ${formatted}`
+      };
+    }
+
     function getPublicBorrowerName(raw) {
       if (!raw) return '';
       // If stored as 'Ananya Hegde (9876543210)', extract only 'Ananya Hegde'
@@ -1063,6 +1118,11 @@
         const isAvailable = book.status === 'Available';
 
         const borrowerName = getPublicBorrowerName(book.checkedOutBy);
+        const dueInfo = calculateDueDate(book.checkedOutDate);
+
+        if (!isAvailable && dueInfo.isOverdue) {
+          card.classList.add('is-overdue-card');
+        }
 
         card.innerHTML = `
           <!-- Column 1: Title -->
@@ -1094,6 +1154,7 @@
             ` : `
               <span class="status-text-borrowed">Borrowed</span>
               ${borrowerName ? `<span class="borrower-subname">by ${borrowerName}</span>` : ''}
+              <span class="due-date-subtext ${dueInfo.isOverdue ? 'is-overdue' : ''}">${dueInfo.text}</span>
             `}
           </div>
 
@@ -1131,11 +1192,12 @@
         userNameInput.value = savedName;
         userAddressInput.value = savedAddress;
 
-        if (savedPhone && savedName) {
-          if (rememberBadge) rememberBadge.style.display = 'block';
-          // Hide address field for returning members to keep checkout 1-tap
-          if (addressFormGroup) addressFormGroup.style.display = 'none';
+        if (savedPhone && savedPhone.length === 10) {
+          checkAndLockMemberName(savedPhone);
         } else {
+          userNameInput.readOnly = false;
+          userNameInput.style.backgroundColor = '#ffffff';
+          userNameInput.style.cursor = 'text';
           if (rememberBadge) rememberBadge.style.display = 'none';
           if (addressFormGroup) addressFormGroup.style.display = 'block';
         }
@@ -1154,26 +1216,72 @@
     }
 
     
-    // Ensure only digits are typed in phone field
-    userPhoneInput.addEventListener('input', () => {
-      userPhoneInput.value = userPhoneInput.value.replace(/\D/g, '').slice(0, 10);
-    });
+    function getMemberRegistry() {
+      try {
+        return JSON.parse(localStorage.getItem('library_registered_members')) || {};
+      } catch (e) {
+        return {};
+      }
+    }
 
-    // Auto-lookup name if they type a phone number that borrowed before
-    userPhoneInput.addEventListener('input', () => {
-      const typedPhone = userPhoneInput.value.trim();
-      if (typedPhone.length >= 7) {
-        // Search past loans for this phone number
+    function checkAndLockMemberName(phone) {
+      const registry = getMemberRegistry();
+      let matchedName = registry[phone] || '';
+
+      // Also search past loans in allBooks as secondary source
+      if (!matchedName && phone && phone.length === 10) {
         for (const b of allBooks) {
-          if (b.checkedOutBy && b.checkedOutBy.includes(typedPhone)) {
+          if (b.checkedOutBy && b.checkedOutBy.includes(phone)) {
             const parts = b.checkedOutBy.split('(');
-            const foundName = parts[0].trim();
-            if (foundName && !userNameInput.value.trim()) {
-              userNameInput.value = foundName;
+            matchedName = parts[0].trim();
+            if (matchedName) {
+              // Cache into registry
+              registry[phone] = matchedName;
+              localStorage.setItem('library_registered_members', JSON.stringify(registry));
               break;
             }
           }
         }
+      }
+
+      const rememberBadge = document.getElementById('member-remember-badge');
+
+      if (matchedName && phone.length === 10) {
+        userNameInput.value = matchedName;
+        userNameInput.readOnly = true;
+        userNameInput.style.backgroundColor = '#f1f5f9';
+        userNameInput.style.cursor = 'not-allowed';
+        userNameInput.title = 'Member name is fixed for this phone number';
+        if (addressFormGroup) addressFormGroup.style.display = 'none';
+        if (rememberBadge) {
+          rememberBadge.style.display = 'block';
+          rememberBadge.innerText = `✓ Verified Member: ${matchedName} (Name is fixed)`;
+        }
+      } else {
+        userNameInput.readOnly = false;
+        userNameInput.style.backgroundColor = '#ffffff';
+        userNameInput.style.cursor = 'text';
+        userNameInput.title = '';
+        if (rememberBadge) rememberBadge.style.display = 'none';
+        if (addressFormGroup && !localStorage.getItem('library_member_address')) {
+          addressFormGroup.style.display = 'block';
+        }
+      }
+    }
+
+    // Live phone sanitization & strict auto-fill with name locking
+    userPhoneInput.addEventListener('input', () => {
+      userPhoneInput.value = userPhoneInput.value.replace(/\D/g, '').slice(0, 10);
+      const phone = userPhoneInput.value.trim();
+      if (phone.length === 10) {
+        checkAndLockMemberName(phone);
+      } else {
+        userNameInput.readOnly = false;
+        userNameInput.style.backgroundColor = '#ffffff';
+        userNameInput.style.cursor = 'text';
+        userNameInput.title = '';
+        const rememberBadge = document.getElementById('member-remember-badge');
+        if (rememberBadge) rememberBadge.style.display = 'none';
       }
     });
 
@@ -1212,7 +1320,7 @@
       localStorage.setItem('library_member_name', name);
 
       const borrowerInfo = `${name} (${cleanedPhone})`;
-      const today = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+      const today = new Date().toISOString().split('T')[0];
 
       book.status = 'Checked Out';
       book.checkedOutBy = borrowerInfo;
