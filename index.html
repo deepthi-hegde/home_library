@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Home Library Catalog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Kannada:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #853723;
+      --primary-light: #fbeee8;
+      --primary-dark: #642515;
+      --accent: #d97706;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --success: #16a34a;
+      --success-bg: #dcfce7;
+      --warning: #ea580c;
+      --warning-bg: #ffedd5;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans Kannada', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding-bottom: 80px;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 24px 16px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      box-shadow: var(--shadow-md);
+    }
+
+    .header-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .brand-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-icon {
+      font-size: 26px;
+      background: rgba(255, 255, 255, 0.15);
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      backdrop-filter: blur(8px);
+    }
+
+    h1 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .badge-count {
+      font-size: 0.78rem;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    /* Search Input */
+    .search-box {
+      position: relative;
+      margin-bottom: 12px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 13px 44px 13px 42px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.95);
+      font-size: 0.98rem;
+      font-family: inherit;
+      color: var(--text);
+      outline: none;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .search-input:focus {
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.4);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .clear-search {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      font-size: 18px;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: none;
+      padding: 4px;
+    }
+
+    /* Category Filter Pills */
+    .categories-wrap {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .categories-wrap::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cat-pill {
+      background: rgba(255, 255, 255, 0.18);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .cat-pill.active {
+      background: #ffffff;
+      color: var(--primary);
+      border-color: #ffffff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Main Container */
+    main {
+      max-width: 900px;
+      margin: 20px auto 0;
+      padding: 0 16px;
+    }
+
+    /* Controls bar */
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .filter-status {
+      display: flex;
+      gap: 6px;
+      background: #e2e8f0;
+      padding: 3px;
+      border-radius: 10px;
+    }
+
+    .status-btn {
+      border: none;
+      background: transparent;
+      padding: 4px 10px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+
+    .status-btn.active {
+      background: white;
+      color: var(--text);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Persistent Sticky Table Header */
+    .table-header-row {
+      display: grid;
+      grid-template-columns: minmax(150px, 1.6fr) minmax(130px, 1.4fr) minmax(110px, 1.1fr) 130px 105px 96px;
+      gap: 10px;
+      padding: 8px 16px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748b;
+      border-bottom: 1.5px solid #cbd5e1;
+      position: sticky;
+      top: 172px; /* Sticks just below the header */
+      background: var(--bg);
+      z-index: 30;
+      margin-bottom: 6px;
+    }
+
+    .th-action {
+      text-align: right;
+    }
+
+    /* Book Cards Grid - Compact list view */
+    .books-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .book-card {
+      background: var(--surface);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      display: grid;
+      grid-template-columns: minmax(150px, 1.6fr) minmax(130px, 1.4fr) minmax(110px, 1.1fr) 130px 105px 96px;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .book-card:hover {
+      background-color: #ffffff;
+      border-color: #cbd5e1;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Column 1: Title */
+    .col-title {
+      min-width: 0;
+      padding-right: 6px;
+    }
+
+    .col-title .book-title {
+      font-size: 0.94rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    /* Column 2: Subtitle (No dot, clean plain text) */
+    .col-subtitle {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      line-height: 1.35;
+      min-width: 0;
+      padding-right: 6px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    /* Column 3: Publisher / Author */
+    .col-publisher {
+      font-size: 0.82rem;
+      color: #475569;
+      line-height: 1.35;
+      min-width: 0;
+      padding-right: 6px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    /* Column 4: Category (No colored dots, sentence case, warm harmonious tones) */
+    .col-category {
+      display: flex;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .category-tag {
+      display: inline-block;
+      font-size: 0.77rem;
+      font-weight: 500;
+      letter-spacing: 0;
+      text-transform: none;
+      padding: 3px 9px;
+      border-radius: 12px;
+      white-space: nowrap;
+      border: 1px solid transparent;
+    }
+
+    /* Warm color palette harmonizing with header brown */
+    .tag-hindu-deities { background: #fffbeb; color: #92400e; border-color: #fef3c7; }
+    .tag-kannada { background: #fff1f2; color: #9f1239; border-color: #ffe4e6; }
+    .tag-comics { background: #fef3c7; color: #78350f; border-color: #fde68a; }
+    .tag-children-fiction { background: #fdf2f8; color: #831843; border-color: #fce7f3; }
+    .tag-children-stories { background: #fdf4ff; color: #701a75; border-color: #fae8ff; }
+    .tag-history { background: #f7fee7; color: #3f6212; border-color: #ecfccb; }
+    .tag-spiritual { background: #f0fdf4; color: #166534; border-color: #dcfce7; }
+    .tag-default { background: #f8fafc; color: #475569; border-color: #e2e8f0; }
+
+    /* Column 4: Dedicated Status Column */
+    .col-status {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      line-height: 1.25;
+    }
+
+    .status-text-available {
+      font-size: 0.81rem;
+      font-weight: 600;
+      color: #15803d; /* Calm green text, no icon/dot */
+    }
+
+    .status-text-borrowed {
+      font-size: 0.81rem;
+      font-weight: 600;
+      color: #b45309; /* Quiet amber text */
+    }
+
+    .borrower-subname {
+      font-size: 0.72rem;
+      color: #64748b;
+      margin-top: 1px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Column 5: Action Column */
+    .col-action {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    /* Fixed-width Action Buttons for clean right-edge alignment */
+    .btn-action {
+      min-width: 88px;
+      height: 31px;
+      padding: 0 12px;
+      border-radius: 8px;
+      font-size: 0.79rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .btn-checkout {
+      background: var(--primary);
+      color: white;
+      border: 1px solid var(--primary);
+    }
+
+    .btn-checkout:hover {
+      background: var(--primary-dark);
+      border-color: var(--primary-dark);
+    }
+
+    /* Outlined return button in warm brown */
+    .btn-return {
+      background: transparent;
+      color: var(--primary);
+      border: 1.5px solid var(--primary);
+    }
+
+    .btn-return:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    /* Responsive adjustments for phones */
+    @media (max-width: 768px) {
+      .table-header-row {
+        display: none;
+      }
+      .book-card {
+        grid-template-columns: 1fr auto;
+        gap: 6px;
+        padding: 10px 12px;
+      }
+      .col-title {
+        grid-column: 1 / 2;
+      }
+      .col-action {
+        grid-column: 2 / 3;
+        grid-row: 1 / 4;
+        align-self: center;
+      }
+      .col-subtitle {
+        grid-column: 1 / 2;
+      }
+      .col-publisher {
+        grid-column: 1 / 2;
+      }
+      .col-category {
+        grid-column: 1 / 2;
+      }
+      .col-status {
+        grid-column: 1 / 2;
+      }
+    }
+
+    .book-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.35;
+      margin-bottom: 4px;
+    }
+
+    .book-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-bottom {
+      border-top: 1px dashed var(--border);
+      padding-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 4px 9px;
+      border-radius: 20px;
+    }
+
+    .status-available {
+      background: var(--success-bg);
+      color: var(--success);
+    }
+
+    .status-out {
+      background: var(--warning-bg);
+      color: var(--warning);
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .btn-action {
+      border: none;
+      padding: 7px 14px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-checkout {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-checkout:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-return {
+      background: #e2e8f0;
+      color: var(--text);
+    }
+
+    .btn-return:hover {
+      background: #cbd5e1;
+    }
+
+    .checked-by {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      background: white;
+      width: 100%;
+      max-width: 500px;
+      border-radius: 24px 24px 0 0;
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @media (min-width: 600px) {
+      .modal-backdrop {
+        align-items: center;
+      }
+      .modal-card {
+        border-radius: 24px;
+        transform: scale(0.95);
+      }
+      .modal-backdrop.open .modal-card {
+        transform: scale(1);
+      }
+    }
+
+    .modal-backdrop.open .modal-card {
+      transform: translateY(0);
+    }
+
+    .modal-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .modal-subtitle {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      outline: none;
+    }
+
+    .form-input:focus {
+      border-color: var(--primary);
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .btn-submit {
+      flex: 1;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn-cancel {
+      background: #f1f5f9;
+      color: var(--text);
+      border: none;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+    }
+
+    .empty-icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #0f172a;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-lg);
+      transition: transform 0.3s ease;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-content">
+      <div class="brand">
+        <div class="brand-title">
+          <div class="brand-icon">📚</div>
+          <div>
+            <h1>Home Library</h1>
+            <p style="font-size: 0.75rem; opacity: 0.9; display: flex; align-items: center; gap: 4px; margin-top: 1px;">
+              <span>📍 Wade Road, Delta</span>
+              <span style="opacity: 0.6;">•</span>
+              <span style="opacity: 0.9;">Browse & Check out</span>
+            </p>
+          </div>
+        </div>
+        <div class="badge-count" id="book-count-badge">Syncing...</div>
+      </div>
+
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input 
+          type="text" 
+          id="search-input" 
+          class="search-input" 
+          placeholder="Search by title, author, or keyword..." 
+          autocomplete="off"
+        >
+        <button id="clear-search-btn" class="clear-search">✕</button>
+      </div>
+
+      <div class="categories-wrap" id="categories-bar">
+        <button class="cat-pill active" data-cat="ALL">All Books</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="toolbar">
+      <div id="results-count">Showing books</div>
+      <div class="filter-status">
+        <button class="status-btn active" data-status="ALL">All</button>
+        <button class="status-btn" data-status="Available">Available</button>
+        <button class="status-btn" data-status="Checked Out">Borrowed</button>
+      </div>
+    </div>
+
+    <!-- Always Visible Sticky Table Header -->
+    <div class="table-header-row" id="table-header-row">
+      <div>Title</div>
+      <div>Subtitle / Description</div>
+      <div>Publisher / Author</div>
+      <div>Category</div>
+      <div>Status</div>
+      <div class="th-action">Action</div>
+    </div>
+
+    <div class="books-grid" id="books-container">
+      <!-- Book cards populated dynamically -->
+    </div>
+
+    <div class="empty-state" id="empty-state" style="display: none;">
+      <div class="empty-icon">📖</div>
+      <h3>No books found</h3>
+      <p>Try searching with another keyword or selecting a different category.</p>
+    </div>
+  </main>
+
+  <!-- Checkout Modal -->
+  <div class="modal-backdrop" id="checkout-modal">
+    <div class="modal-card">
+      <h2 class="modal-title" id="modal-book-title">Check Out Book</h2>
+      <p class="modal-subtitle" id="modal-book-subtitle"></p>
+
+      <div class="form-group">
+        <label class="form-label" for="user-phone-input">Phone Number (Your Member ID) *</label>
+        <input type="tel" id="user-phone-input" class="form-input" placeholder="10-digit mobile number (numbers only)" maxlength="10" inputmode="numeric" pattern="[0-9]*">
+        <p style="font-size: 0.72rem; color: var(--text-muted); margin-top: 4px;">Used as your unique Member ID for check in & check out.</p>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="user-name-input">Your Full Name *</label>
+        <input type="text" id="user-name-input" class="form-input" placeholder="e.g., Ananya Hegde">
+      </div>
+
+      <div class="form-group" id="address-form-group">
+        <label class="form-label" for="user-address-input">Address *</label>
+        <input type="text" id="user-address-input" class="form-input" placeholder="Your address">
+      </div>
+      
+      <div id="member-remember-badge" style="display: none; background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; font-size: 0.78rem; font-weight: 600; padding: 6px 10px; border-radius: 8px; margin-bottom: 12px;">
+        👋 Welcome back! Info auto-filled from your previous visit.
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-cancel" id="modal-cancel-btn">Cancel</button>
+        <button type="button" class="btn-submit" id="modal-submit-btn">Confirm Check Out</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzJUHpXxcAAXv-zraGMYQ2qGb48KdoEbi2KsXfRat3JnzKOvKJNRioWReB0Jo7xW1A/exec';
+    const GOOGLE_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1HjyvrXj8_NIAObgVXdBW0AkVoTPbRHHPKNMtKWv4SNw/gviz/tq?tqx=out:csv';
+    const INITIAL_BOOKS = [{"id": 1, "title": "Agastya", "subtitle": "Renowned Among the Saptarshi", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 2, "title": "Ancient Temples of India", "subtitle": "A Pilgrimage to Sacred Shrines", "copies": 1, "status": "Available", "category": "History / Biographies", "checkedOutBy": null, "checkedOutDate": null}, {"id": 3, "title": "Andhaka", "subtitle": "The Dark Lord Who Saw Light", "copies": 2, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 4, "title": "Ayyappan", "subtitle": "The Lord of Shabarimala", "copies": 2, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 5, "title": "Bhagawat", "subtitle": "The Krishna Avatar", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 6, "title": "Bheeshma", "subtitle": "Selflessness Personified", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 7, "title": "Birbal the Genius", "subtitle": "Wit and Wisdom at Akbar's Court", "copies": 1, "status": "Available", "category": "Children's Fiction", "checkedOutBy": null, "checkedOutDate": null}, {"id": 8, "title": "Birbal the Wise", "subtitle": "The Adventures of Akbar's Favourite Minister", "copies": 1, "status": "Available", "category": "Children's Fiction", "checkedOutBy": null, "checkedOutDate": null}, {"id": 9, "title": "Birbal the Witty", "subtitle": "Tales of Birbal", "copies": 1, "status": "Available", "category": "Children's Fiction", "checkedOutBy": null, "checkedOutDate": null}, {"id": 10, "title": "Birbal to the Rescue", "subtitle": "The Master Psychologist", "copies": 1, "status": "Available", "category": "Children's Fiction", "checkedOutBy": null, "checkedOutDate": null}, {"id": 11, "title": "Bird Stories", "subtitle": "Jataka Tales of Brains Versus Brawn", "copies": 1, "status": "Available", "category": "Children's Fiction / Folktales", "checkedOutBy": null, "checkedOutDate": null}, {"id": 12, "title": "Buddhist Stories", "subtitle": "Amar Chitra Katha Folktales Series", "copies": 1, "status": "Available", "category": "Comics", "checkedOutBy": null, "checkedOutDate": null}, {"id": 13, "title": "Choice of Friends", "subtitle": "Tales from the Hitopadesha", "copies": 1, "status": "Available", "category": "Children's Fiction", "checkedOutBy": null, "checkedOutDate": null}, {"id": 14, "title": "Dasha Avatar", "subtitle": "The Ten Incarnations of Lord Vishnu", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 15, "title": "Deer Stories", "subtitle": "The Gentle Wisdom of the Jataka", "copies": 1, "status": "Available", "category": "Children's Fiction / Folktales", "checkedOutBy": null, "checkedOutDate": null}, {"id": 16, "title": "Devas", "subtitle": "Stories of Vedic Deities", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 17, "title": "Dhruva and Ashtavakra", "subtitle": "They Reached for the Skies", "copies": 2, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 18, "title": "Divine Beings", "subtitle": "Airavata, Jatayu, Nandi & Others", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 19, "title": "Divine Rivers", "subtitle": "Stories Of Origin", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 20, "title": "Drona", "subtitle": "Valiant Archer, Supreme Teacher", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 21, "title": "Elephanta", "subtitle": "The Island of Shiva", "copies": 2, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 22, "title": "Elephant Stories", "subtitle": "Jataka Tales of Nobility", "copies": 1, "status": "Available", "category": "Children's Fiction / Folktales", "checkedOutBy": null, "checkedOutDate": null}, {"id": 23, "title": "Funny Folktales", "subtitle": "Amar Chitra Katha Folktales Series", "copies": 1, "status": "Available", "category": "Comics", "checkedOutBy": null, "checkedOutDate": null}, {"id": 24, "title": "Ganesha", "subtitle": "The Remover of All Obstacles", "copies": 2, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 25, "title": "Ganesha and the Moon", "subtitle": "And Other Stories", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 26, "title": "Gopal the Jester", "subtitle": "The Brilliant Bengali Wit", "copies": 1, "status": "Available", "category": "History / Biographies", "checkedOutBy": null, "checkedOutDate": null}, {"id": 27, "title": "Hanuman", "subtitle": "The Epitome of Devotion and Courage", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 28, "title": "Harischandra", "subtitle": "The King Who Chose Rags Over Riches", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 29, "title": "Indra and Shibi", "subtitle": "Tales of the Wise Lord of Heaven", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 30, "title": "Kannada Book", "subtitle": "Illya Vyapari (ಇಲಿಯ ವ್ಯಾಪಾರಿ)", "copies": 1, "status": "Available", "category": "Kannada Books", "checkedOutBy": null, "checkedOutDate": null}, {"id": 31, "title": "Karna", "subtitle": "Brave, Generous, Ill-Fated Prince", "copies": 2, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 32, "title": "Karttikeya", "subtitle": "A Son of Shiva", "copies": 2, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 33, "title": "Krishna and Jarasandha", "subtitle": "Krishna Outsmarts His Fierce Adversary", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 34, "title": "Krishna and Rukmini", "subtitle": "A Love That Will Not Be Denied", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 35, "title": "Lakshmi", "subtitle": "The Goddess of Good Fortune", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 36, "title": "Mahadeva", "subtitle": "Stories from the Shiva Purana", "copies": 2, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 37, "title": "Mahatma Gandhi", "subtitle": "Father of the Nation", "copies": 1, "status": "Available", "category": "History / Biographies", "checkedOutBy": null, "checkedOutDate": null}, {"id": 38, "title": "Mirabai", "subtitle": "She Gave Her Heart to Krishna", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 39, "title": "Monkey Stories 3-In-1", "subtitle": "", "copies": 1, "status": "Available", "category": "Children's Fiction / Folktales", "checkedOutBy": null, "checkedOutDate": null}, {"id": 40, "title": "Nachiketa", "subtitle": "A Collection of Stories from the Upanishads", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 41, "title": "Nahusha", "subtitle": "He Became the King of Heaven", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 42, "title": "Nandivishala", "subtitle": "Wit and Wisdom from Buddhist Lore", "copies": 1, "status": "Available", "category": "Children's Fiction / Folktales", "checkedOutBy": null, "checkedOutDate": null}, {"id": 43, "title": "Prahlad", "subtitle": "A Tale of Devotion from the Bhagawat Purana", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 44, "title": "Rama", "subtitle": "Retold from the Ramayana", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 45, "title": "Raman of Tenali", "subtitle": "The Birbal of the South", "copies": 1, "status": "Available", "category": "Children's Fiction", "checkedOutBy": null, "checkedOutDate": null}, {"id": 46, "title": "Raman the Matchless Wit", "subtitle": "The Adventures of a Unique Court Jester", "copies": 1, "status": "Available", "category": "History / Biographies", "checkedOutBy": null, "checkedOutDate": null}, {"id": 47, "title": "Ravana Humbled", "subtitle": "An Arrogant King Finds New Friends", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 48, "title": "Saraswati", "subtitle": "Stories of the Goddess of Wisdom", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 49, "title": "Sati and Shiva", "subtitle": "Perfection Rewarded", "copies": 2, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 50, "title": "Shakti", "subtitle": "Tales of the Mother Goddess", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 51, "title": "Shiva Parvati", "subtitle": "A Story of Divine Love", "copies": 2, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 52, "title": "Stories of Courage", "subtitle": "Jataka Tales of Valour and Victory", "copies": 1, "status": "Available", "category": "Children's Fiction / Folktales", "checkedOutBy": null, "checkedOutDate": null}, {"id": 53, "title": "Surya", "subtitle": "How the Sun God Was Tamed", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 54, "title": "Tales of Balarama", "subtitle": "Valiant Brother of Krishna", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 55, "title": "Tales of Durga", "subtitle": "Tales of the Mother Goddess", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 56, "title": "Tales of Giants and Demons", "subtitle": "5-in-1", "copies": 1, "status": "Available", "category": "Children's Fiction / Folktales", "checkedOutBy": null, "checkedOutDate": null}, {"id": 57, "title": "Tales of Narada", "subtitle": "Tales of Devotion and Rivalry", "copies": 2, "status": "Available", "category": "History / Biographies", "checkedOutBy": null, "checkedOutDate": null}, {"id": 58, "title": "Tales of Revolutionaries", "subtitle": "5-in-1", "copies": 1, "status": "Available", "category": "History / Biographies", "checkedOutBy": null, "checkedOutDate": null}, {"id": 59, "title": "Tales of Shiva", "subtitle": "The Mighty Lord of Kailasa", "copies": 2, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 60, "title": "Thanjavur", "subtitle": "City of Brihadeeswara", "copies": 1, "status": "Available", "category": "History / Biographies", "checkedOutBy": null, "checkedOutDate": null}, {"id": 61, "title": "The Blue Umbrella", "subtitle": "Stories by Ruskin Bond", "copies": 1, "status": "Available", "category": "Children's Fiction", "checkedOutBy": null, "checkedOutDate": null}, {"id": 62, "title": "The Churning of the Ocean", "subtitle": "Vishnu Saves Creation", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 63, "title": "The Fool's Disciples", "subtitle": "Tales of Sense and Nonsense", "copies": 1, "status": "Available", "category": "Children's Fiction / Folktales", "checkedOutBy": null, "checkedOutDate": null}, {"id": 64, "title": "The Giant and the Dwarf", "subtitle": "A Jataka Tale of Wit and Wisdom", "copies": 1, "status": "Available", "category": "Children's Fiction / Folktales", "checkedOutBy": null, "checkedOutDate": null}, {"id": 65, "title": "The Gita", "subtitle": "The Song of Eternal Wisdom", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 66, "title": "The Hidden Treasure", "subtitle": "Wisdom Wins a War", "copies": 1, "status": "Available", "category": "Children's Fiction / Folktales", "checkedOutBy": null, "checkedOutDate": null}, {"id": 67, "title": "The Inimitable Birbal", "subtitle": "A Friend, Philosopher and Guide to Akbar", "copies": 1, "status": "Available", "category": "Children's Fiction", "checkedOutBy": null, "checkedOutDate": null}, {"id": 68, "title": "The Pandava Princes", "subtitle": "Pandu's Five Brave Sons", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 69, "title": "The Three Gurus", "subtitle": "Guru Tegh Bahadur, Guru Nanak, Guru Gobind Singh", "copies": 1, "status": "Available", "category": "History / Biographies", "checkedOutBy": null, "checkedOutDate": null}, {"id": 70, "title": "Tripura", "subtitle": "The Three Impregnable Cities of Maya", "copies": 3, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 71, "title": "Tulsidas", "subtitle": "The Poet Who Wrote Ram-Charit-Manas", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 72, "title": "Uloopi", "subtitle": "The Naga Princess Who Fell in Love with Arjuna", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 73, "title": "Valmiki's Ramayana", "subtitle": "The Great Indian Epic", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 74, "title": "Vidyasagar", "subtitle": "Scholar and Social Reformer of Bengal", "copies": 1, "status": "Available", "category": "History / Biographies", "checkedOutBy": null, "checkedOutDate": null}, {"id": 75, "title": "Vikramaditya", "subtitle": "Courage and Honour Win the Day", "copies": 1, "status": "Available", "category": "History / Biographies", "checkedOutBy": null, "checkedOutDate": null}, {"id": 76, "title": "Vishwamitra", "subtitle": "The King Who Became an Ascetic", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 77, "title": "Vivekananda", "subtitle": "He Kindled the Spirit of Modern India", "copies": 1, "status": "Available", "category": "Biographies / Spiritual", "checkedOutBy": null, "checkedOutDate": null}, {"id": 78, "title": "Pictorial Mahabharata 1", "subtitle": "", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 79, "title": "Pictorial Mahabharata 2", "subtitle": "", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 80, "title": "Pictorial Mahabharata 3", "subtitle": "", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 81, "title": "Pictorial Mahabharata 4", "subtitle": "", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 82, "title": "Pictorial Mahabharata 5", "subtitle": "", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 83, "title": "Pictorial Stories for Children 11", "subtitle": "", "copies": 1, "status": "Available", "category": "Children's Stories", "checkedOutBy": null, "checkedOutDate": null}, {"id": 84, "title": "Pictorial Stories for Children 13", "subtitle": "", "copies": 1, "status": "Available", "category": "Children's Stories", "checkedOutBy": null, "checkedOutDate": null}, {"id": 85, "title": "Pictorial Stories for Children 14", "subtitle": "", "copies": 1, "status": "Available", "category": "Children's Stories", "checkedOutBy": null, "checkedOutDate": null}, {"id": 86, "title": "Pictorial Stories for Children 18", "subtitle": "", "copies": 1, "status": "Available", "category": "Children's Stories", "checkedOutBy": null, "checkedOutDate": null}, {"id": 87, "title": "Pictorial Stories for Children 22", "subtitle": "", "copies": 1, "status": "Available", "category": "Children's Stories", "checkedOutBy": null, "checkedOutDate": null}, {"id": 88, "title": "Pictorial Stories for Children 2", "subtitle": "", "copies": 1, "status": "Available", "category": "Children's Stories", "checkedOutBy": null, "checkedOutDate": null}, {"id": 89, "title": "Pictorial Stories for Children 4", "subtitle": "", "copies": 1, "status": "Available", "category": "Children's Stories", "checkedOutBy": null, "checkedOutDate": null}, {"id": 90, "title": "Pictorial Stories for Children 7", "subtitle": "", "copies": 1, "status": "Available", "category": "Children's Stories", "checkedOutBy": null, "checkedOutDate": null}, {"id": 91, "title": "Pictorial Stories for Children 8", "subtitle": "", "copies": 1, "status": "Available", "category": "Children's Stories", "checkedOutBy": null, "checkedOutDate": null}, {"id": 92, "title": "Pictorial Stories for Children 17", "subtitle": "", "copies": 1, "status": "Available", "category": "Children's Stories", "checkedOutBy": null, "checkedOutDate": null}, {"id": 93, "title": "Pictorial Stories for Children 20", "subtitle": "", "copies": 1, "status": "Available", "category": "Children's Stories", "checkedOutBy": null, "checkedOutDate": null}, {"id": 94, "title": "Pictorial Stories for Children 23", "subtitle": "", "copies": 1, "status": "Available", "category": "Children's Stories", "checkedOutBy": null, "checkedOutDate": null}, {"id": 95, "title": "Pictorial Stories for Children 25", "subtitle": "", "copies": 1, "status": "Available", "category": "Children's Stories", "checkedOutBy": null, "checkedOutDate": null}, {"id": 96, "title": "Pictorial Stories for Children 1", "subtitle": "", "copies": 1, "status": "Available", "category": "Children's Stories", "checkedOutBy": null, "checkedOutDate": null}, {"id": 97, "title": "Pictorial Stories for Children 6", "subtitle": "", "copies": 1, "status": "Available", "category": "Children's Stories", "checkedOutBy": null, "checkedOutDate": null}, {"id": 98, "title": "Pictorial Stories for Children 10", "subtitle": "", "copies": 1, "status": "Available", "category": "Children's Stories", "checkedOutBy": null, "checkedOutDate": null}, {"id": 99, "title": "In the Month of Kislev", "subtitle": "A Story for Hanukkah", "copies": 1, "status": "Available", "category": "Children's Fiction", "checkedOutBy": null, "checkedOutDate": null}, {"id": 100, "title": "Encyclopedia Brown Cracks the Case", "subtitle": "", "copies": 1, "status": "Available", "category": "Children's Fiction", "checkedOutBy": null, "checkedOutDate": null}, {"id": 101, "title": "Chhota Bheem in The Magical Stairway", "subtitle": "", "copies": 1, "status": "Available", "category": "Comics", "checkedOutBy": null, "checkedOutDate": null}, {"id": 102, "title": "Dhruva", "subtitle": "The Story of the Pole Star", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 103, "title": "Chaiwala!", "subtitle": "The TD Grade One Book Giveaway", "copies": 1, "status": "Available", "category": "Children's Fiction", "checkedOutBy": null, "checkedOutDate": null}, {"id": 104, "title": "My Little Baby Bear", "subtitle": "", "copies": 1, "status": "Available", "category": "Children's Fiction", "checkedOutBy": null, "checkedOutDate": null}, {"id": 105, "title": "Enid Blyton - Happy Days!", "subtitle": "The Adventures of Binkle and Flip", "copies": 1, "status": "Available", "category": "Children's Fiction", "checkedOutBy": null, "checkedOutDate": null}, {"id": 106, "title": "Atharva Veda", "subtitle": "Stories for Children", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 107, "title": "Suppandi 7", "subtitle": "Fire Away!", "copies": 1, "status": "Available", "category": "Comics", "checkedOutBy": null, "checkedOutDate": null}, {"id": 108, "title": "Pinki Computer Virus", "subtitle": "", "copies": 1, "status": "Available", "category": "Comics", "checkedOutBy": null, "checkedOutDate": null}, {"id": 109, "title": "Tinkle", "subtitle": "Holiday Special 55", "copies": 1, "status": "Available", "category": "Comics", "checkedOutBy": null, "checkedOutDate": null}, {"id": 110, "title": "Short Stories from Panchatantra", "subtitle": "", "copies": 1, "status": "Available", "category": "Children's Fiction", "checkedOutBy": null, "checkedOutDate": null}, {"id": 111, "title": "Suppandi 4", "subtitle": "Tickling the Funny Bone", "copies": 1, "status": "Available", "category": "Comics", "checkedOutBy": null, "checkedOutDate": null}, {"id": 112, "title": "Swami Vivekananda's Childhood", "subtitle": "", "copies": 1, "status": "Available", "category": "Biographies / Spiritual", "checkedOutBy": null, "checkedOutDate": null}, {"id": 113, "title": "Sri Ramakrishna Tells Stories", "subtitle": "", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 114, "title": "Tales from Ramakrishna", "subtitle": "", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 115, "title": "The Story of Vivekananda", "subtitle": "", "copies": 1, "status": "Available", "category": "Biographies / Spiritual", "checkedOutBy": null, "checkedOutDate": null}, {"id": 116, "title": "Swami Vivekananda Pictorial", "subtitle": "", "copies": 1, "status": "Available", "category": "Biographies / Spiritual", "checkedOutBy": null, "checkedOutDate": null}, {"id": 117, "title": "Tales from Vivekananda", "subtitle": "", "copies": 1, "status": "Available", "category": "Biographies / Spiritual", "checkedOutBy": null, "checkedOutDate": null}, {"id": 118, "title": "Sri Ramakrishna", "subtitle": "Story for Children", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 119, "title": "Hitopadesha", "subtitle": "Wilco Picture Library", "copies": 1, "status": "Available", "category": "Children's Fiction", "checkedOutBy": null, "checkedOutDate": null}, {"id": 120, "title": "Tinkle Double Digest 4", "subtitle": "", "copies": 1, "status": "Available", "category": "Comics", "checkedOutBy": null, "checkedOutDate": null}, {"id": 121, "title": "Tinkle Double Digest 7", "subtitle": "", "copies": 1, "status": "Available", "category": "Comics", "checkedOutBy": null, "checkedOutDate": null}, {"id": 122, "title": "The Champak Story Box Volume 6", "subtitle": "", "copies": 1, "status": "Available", "category": "Comics", "checkedOutBy": null, "checkedOutDate": null}, {"id": 123, "title": "Makkaligagi Sachitra Kathegalu 3", "subtitle": "(Kannada) Pictorial Stories for Children", "copies": 1, "status": "Available", "category": "Kannada Books", "checkedOutBy": null, "checkedOutDate": null}, {"id": 124, "title": "Makkaligagi Sachitra Kathegalu 4", "subtitle": "(Kannada) Pictorial Stories for Children", "copies": 1, "status": "Available", "category": "Kannada Books", "checkedOutBy": null, "checkedOutDate": null}, {"id": 125, "title": "Makkaligagi Sachitra Kathegalu 5", "subtitle": "(Kannada) Pictorial Stories for Children", "copies": 1, "status": "Available", "category": "Kannada Books", "checkedOutBy": null, "checkedOutDate": null}, {"id": 126, "title": "Makkaligagi Sachitra Kathegalu 7", "subtitle": "(Kannada) Pictorial Stories for Children", "copies": 1, "status": "Available", "category": "Kannada Books", "checkedOutBy": null, "checkedOutDate": null}, {"id": 127, "title": "Makkaligagi Sachitra Kathegalu 8", "subtitle": "(Kannada) Pictorial Stories for Children", "copies": 1, "status": "Available", "category": "Kannada Books", "checkedOutBy": null, "checkedOutDate": null}, {"id": 128, "title": "Makkaligagi Sachitra Kathegalu 10", "subtitle": "(Kannada) Pictorial Stories for Children", "copies": 1, "status": "Available", "category": "Kannada Books", "checkedOutBy": null, "checkedOutDate": null}, {"id": 129, "title": "Makkaligagi Sachitra Kathegalu 11", "subtitle": "(Kannada) Pictorial Stories for Children", "copies": 1, "status": "Available", "category": "Kannada Books", "checkedOutBy": null, "checkedOutDate": null}, {"id": 130, "title": "Makkaligagi Sachitra Kathegalu 12", "subtitle": "(Kannada) Pictorial Stories for Children", "copies": 1, "status": "Available", "category": "Kannada Books", "checkedOutBy": null, "checkedOutDate": null}, {"id": 131, "title": "Makkaligagi Sachitra Kathegalu 13", "subtitle": "(Kannada) Pictorial Stories for Children", "copies": 1, "status": "Available", "category": "Kannada Books", "checkedOutBy": null, "checkedOutDate": null}, {"id": 132, "title": "Makkaligagi Sachitra Kathegalu 15", "subtitle": "(Kannada) Pictorial Stories for Children", "copies": 1, "status": "Available", "category": "Kannada Books", "checkedOutBy": null, "checkedOutDate": null}, {"id": 133, "title": "Makkaligagi Sachitra Kathegalu 1", "subtitle": "(Kannada) Pictorial Stories for Children", "copies": 1, "status": "Available", "category": "Kannada Books", "checkedOutBy": null, "checkedOutDate": null}, {"id": 134, "title": "Makkaligagi Sachitra Kathegalu 2", "subtitle": "(Kannada) Pictorial Stories for Children", "copies": 1, "status": "Available", "category": "Kannada Books", "checkedOutBy": null, "checkedOutDate": null}, {"id": 135, "title": "Makkaligagi Sachitra Kathegalu 6", "subtitle": "(Kannada) Pictorial Stories for Children", "copies": 1, "status": "Available", "category": "Kannada Books", "checkedOutBy": null, "checkedOutDate": null}, {"id": 136, "title": "Makkaligagi Sachitra Kathegalu 9", "subtitle": "(Kannada) Pictorial Stories for Children", "copies": 1, "status": "Available", "category": "Kannada Books", "checkedOutBy": null, "checkedOutDate": null}, {"id": 137, "title": "Makkaligagi Sachitra Kathegalu 14", "subtitle": "(Kannada) Pictorial Stories for Children", "copies": 1, "status": "Available", "category": "Kannada Books", "checkedOutBy": null, "checkedOutDate": null}, {"id": 138, "title": "Vikata Kavi Tenali Rama", "subtitle": "(Kannada)", "copies": 1, "status": "Available", "category": "Kannada Books", "checkedOutBy": null, "checkedOutDate": null}, {"id": 139, "title": "Chinnara Chitra Ramayana", "subtitle": "(Kannada)", "copies": 1, "status": "Available", "category": "Kannada Books", "checkedOutBy": null, "checkedOutDate": null}, {"id": 140, "title": "The Bird with Golden Wings", "subtitle": "Stories of Wit and Magic - Sudha Murty", "copies": 1, "status": "Available", "category": "Children's Fiction", "checkedOutBy": null, "checkedOutDate": null}, {"id": 141, "title": "How the Mango got its Magic", "subtitle": "Sudha Murty", "copies": 1, "status": "Available", "category": "Children's Fiction", "checkedOutBy": null, "checkedOutDate": null}, {"id": 142, "title": "The Sage with Two Horns", "subtitle": "Unusual Tales from Mythology - Sudha Murty", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 143, "title": "The Magic of the Lost Story", "subtitle": "Sudha Murty", "copies": 1, "status": "Available", "category": "Children's Fiction", "checkedOutBy": null, "checkedOutDate": null}, {"id": 144, "title": "How I Taught my Grandmother to Read and other stories", "subtitle": "Sudha Murty", "copies": 1, "status": "Available", "category": "Children's Fiction", "checkedOutBy": null, "checkedOutDate": null}, {"id": 145, "title": "The Magic of the Lost Temple", "subtitle": "Sudha Murty", "copies": 1, "status": "Available", "category": "Children's Fiction", "checkedOutBy": null, "checkedOutDate": null}, {"id": 146, "title": "Girish Karnad is Karadi the bear", "subtitle": "Birth Of Krishna", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 147, "title": "Girish Karnad is Karadi the bear", "subtitle": "Hanuman, the Mighty", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 148, "title": "Girish Karnad is Karadi the bear", "subtitle": "Krishna's Conquests", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 149, "title": "Girish Karnad is Karadi the bear", "subtitle": "Young Hanuman", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 150, "title": "Hindu Rites, Rituals, Customs & Traditions", "subtitle": "", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 151, "title": "Values for me - Sympathy", "subtitle": "Build Your Character & Conscience", "copies": 1, "status": "Available", "category": "Children's Educational / Values", "checkedOutBy": null, "checkedOutDate": null}, {"id": 152, "title": "Virtue Stories - When in doubt, tell the Truth", "subtitle": "", "copies": 1, "status": "Available", "category": "Children's Educational / Values", "checkedOutBy": null, "checkedOutDate": null}, {"id": 153, "title": "Vivekananda", "subtitle": "Amar Chitra Katha", "copies": 1, "status": "Available", "category": "Comics", "checkedOutBy": null, "checkedOutDate": null}, {"id": 154, "title": "The Story of Sarada Devi", "subtitle": "", "copies": 1, "status": "Available", "category": "Biographies / Spiritual", "checkedOutBy": null, "checkedOutDate": null}, {"id": 155, "title": "Tinkle", "subtitle": "Where Learning Meets Fun", "copies": 1, "status": "Available", "category": "Comics", "checkedOutBy": null, "checkedOutDate": null}, {"id": 156, "title": "Hanuman to the Rescue", "subtitle": "Hanuman Brings the Sanjeevani", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 157, "title": "Birbal, The Wise", "subtitle": "Witty Stories for Children", "copies": 1, "status": "Available", "category": "Children's Fiction", "checkedOutBy": null, "checkedOutDate": null}, {"id": 158, "title": "Shani Dev", "subtitle": "God of Justice", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 159, "title": "Legend and Lore", "subtitle": "Regional Folktales of India", "copies": 1, "status": "Available", "category": "Children's Fiction / Folktales", "checkedOutBy": null, "checkedOutDate": null}, {"id": 160, "title": "Tinkle Presents Suppandi & Friends", "subtitle": "Let the madness begin!", "copies": 1, "status": "Available", "category": "Comics", "checkedOutBy": null, "checkedOutDate": null}, {"id": 161, "title": "My First Hanuman Chalisa", "subtitle": "", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 162, "title": "Jagannatha of Puri", "subtitle": "Dreamt by a King, Sculpted by the Gods", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 163, "title": "Chandamama Stories 1", "subtitle": "Illustrated Stories of Infotainment for Children & Adults", "copies": 1, "status": "Available", "category": "Children's Fiction", "checkedOutBy": null, "checkedOutDate": null}, {"id": 164, "title": "Tinkle Origins", "subtitle": "", "copies": 1, "status": "Available", "category": "Comics", "checkedOutBy": null, "checkedOutDate": null}, {"id": 165, "title": "The Mahabharata in Rhyme", "subtitle": "", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 166, "title": "Scholastic Book of Hindu Gods and Goddesses", "subtitle": "", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}, {"id": 167, "title": "Devdutt Pattanaik - Vahana", "subtitle": "Gods and Their Favourites", "copies": 1, "status": "Available", "category": "Hindu Deities", "checkedOutBy": null, "checkedOutDate": null}];
+
+    let allBooks = [];
+    let selectedCategory = 'ALL';
+    let selectedStatus = 'ALL';
+    let activeBookId = null;
+
+    const searchInput = document.getElementById('search-input');
+    const clearSearchBtn = document.getElementById('clear-search-btn');
+    const categoriesBar = document.getElementById('categories-bar');
+    const booksContainer = document.getElementById('books-container');
+    const emptyState = document.getElementById('empty-state');
+    const bookCountBadge = document.getElementById('book-count-badge');
+    const resultsCount = document.getElementById('results-count');
+    const checkoutModal = document.getElementById('checkout-modal');
+    const modalBookTitle = document.getElementById('modal-book-title');
+    const modalBookSubtitle = document.getElementById('modal-book-subtitle');
+    const userNameInput = document.getElementById('user-name-input');
+    const userAddressInput = document.getElementById('user-address-input');
+    const addressFormGroup = document.getElementById('address-form-group');
+    const userPhoneInput = document.getElementById('user-phone-input');
+    const modalCancelBtn = document.getElementById('modal-cancel-btn');
+    const modalSubmitBtn = document.getElementById('modal-submit-btn');
+    const toast = document.getElementById('toast');
+
+    
+    // Send live update to Google Sheet
+    function sendGoogleSheetUpdate(params) {
+      if (!APPS_SCRIPT_URL) return;
+      const query = new URLSearchParams(params).toString();
+      // Use no-cors fetch/beacon to seamlessly trigger Apps Script without browser CORS issues
+      fetch(`${APPS_SCRIPT_URL}?${query}`, { mode: 'no-cors' }).catch(err => {
+        console.warn('Background sync note:', err);
+      });
+    }
+
+    function showToast(msg) {
+      toast.innerText = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    function parseCSVLine(text) {
+      const result = [];
+      let cur = '';
+      let inQuotes = false;
+      for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+        if (char === '"') {
+          inQuotes = !inQuotes;
+        } else if (char === ',' && !inQuotes) {
+          result.push(cur.trim());
+          cur = '';
+        } else {
+          cur += char;
+        }
+      }
+      result.push(cur.trim());
+      return result;
+    }
+
+    async function initLibrary(isManual = false) {
+      bookCountBadge.innerText = 'Syncing...';
+      
+
+      try {
+        // Fetch directly from deployed Apps Script API (100% live, bypasses Google export cache)
+        const appsScriptEndpoint = APPS_SCRIPT_URL + '?action=getBooks&t=' + Date.now();
+        let fetchedData = null;
+
+        try {
+          const res = await fetch(appsScriptEndpoint);
+          if (res.ok) {
+            const json = await res.json();
+            if (Array.isArray(json) && json.length > 0) {
+              fetchedData = json;
+            }
+          }
+        } catch(e) {
+          console.warn('Apps Script direct fetch error:', e);
+        }
+
+        // If Apps script returned live JSON rows:
+        if (fetchedData) {
+          allBooks = fetchedData;
+          localStorage.setItem('home_library_books', JSON.stringify(allBooks));
+          bookCountBadge.innerText = `${allBooks.length} Books (Live)`;
+          bookCountBadge.style.background = 'rgba(255, 255, 255, 0.25)';
+        } else {
+          // Fallback to CSV export
+          const directUrl = 'https://docs.google.com/spreadsheets/d/1HjyvrXj8_NIAObgVXdBW0AkVoTPbRHHPKNMtKWv4SNw/export?format=csv&t=' + Date.now();
+          const res = await fetch(directUrl, { cache: 'no-store' });
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          const text = await res.text();
+          const rawLines = text.split('\n');
+          const parsed = [];
+          for (let i = 1; i < rawLines.length; i++) {
+            const line = rawLines[i].trim();
+            if (!line) continue;
+            const cols = parseCSVLine(line);
+            if (!cols[0]) continue;
+            parsed.push({
+              id: i,
+              title: cols[0] || '',
+              subtitle: cols[1] || '',
+              category: cols[2] || 'Uncategorized',
+              copies: parseInt(cols[3], 10) || 1,
+              status: cols[4] || 'Available',
+              publisher: cols[5] || '',
+              checkedOutBy: cols[6] || null,
+              checkedOutDate: cols[7] || null
+            });
+          }
+          if (parsed.length > 0) {
+            allBooks = parsed;
+            localStorage.setItem('home_library_books', JSON.stringify(allBooks));
+            bookCountBadge.innerText = `${allBooks.length} Books (Live)`;
+          }
+        }
+      } catch (err) {
+        console.error('Google Sheet fetch error:', err);
+        // Show prominent sync status so we immediately see if browser is blocking the request
+        bookCountBadge.innerText = 'Sync Error: Check Sharing';
+        bookCountBadge.style.background = '#dc2626';
+        
+        const stored = localStorage.getItem('home_library_books');
+        if (stored) {
+          try { allBooks = JSON.parse(stored); } catch(e) { allBooks = INITIAL_BOOKS; }
+        } else {
+          allBooks = INITIAL_BOOKS;
+        }
+      } finally {
+        
+      }
+
+      // Rebuild categories fresh every time
+      categoriesBar.innerHTML = '';
+      const allBtn = document.createElement('button');
+      allBtn.className = 'cat-pill' + (selectedCategory === 'ALL' ? ' active' : '');
+      allBtn.dataset.cat = 'ALL';
+      allBtn.innerText = 'All Books';
+      allBtn.addEventListener('click', () => {
+        document.querySelectorAll('.cat-pill').forEach(el => el.classList.remove('active'));
+        allBtn.classList.add('active');
+        selectedCategory = 'ALL';
+        selectedStatus = 'ALL';
+        document.querySelectorAll('.status-btn').forEach(b => b.classList.toggle('active', b.dataset.status === 'ALL'));
+        renderBooks();
+      });
+      categoriesBar.appendChild(allBtn);
+
+      buildCategories();
+      renderBooks();
+    }
+
+    function buildCategories() {
+      const counts = {};
+      allBooks.forEach(b => {
+        counts[b.category] = (counts[b.category] || 0) + 1;
+      });
+
+      const sortedCategories = Object.keys(counts).sort((a,b) => counts[b] - counts[a]);
+
+      sortedCategories.forEach(cat => {
+        const btn = document.createElement('button');
+        btn.className = 'cat-pill';
+        btn.dataset.cat = cat;
+        btn.innerText = `${cat} (${counts[cat]})`;
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.cat-pill').forEach(el => el.classList.remove('active'));
+          btn.classList.add('active');
+          selectedCategory = cat;
+          renderBooks();
+        });
+        categoriesBar.appendChild(btn);
+      });
+    }
+
+    
+    function getPublicBorrowerName(raw) {
+      if (!raw) return '';
+      // If stored as 'Ananya Hegde (9876543210)', extract only 'Ananya Hegde'
+      const match = raw.split('(');
+      return match[0].trim();
+    }
+
+    function formatCategoryName(cat) {
+      if (!cat) return 'Uncategorized';
+      // Sentence case & clean symbol replacements
+      if (cat.toLowerCase().includes('history')) return 'History & biography';
+      if (cat.toLowerCase().includes('folktale')) return 'Folktales & fables';
+      if (cat.toLowerCase().includes('educational')) return 'Values & morals';
+      if (cat.toLowerCase().includes('spiritual')) return 'Spiritual & lives';
+      return cat;
+    }
+
+    function getTagClass(category) {
+      const c = (category || '').toLowerCase();
+      if (c.includes('hindu')) return 'tag-hindu-deities';
+      if (c.includes('kannada')) return 'tag-kannada';
+      if (c.includes('comic')) return 'tag-comics';
+      if (c.includes('history')) return 'tag-history';
+      if (c.includes('spiritual')) return 'tag-spiritual';
+      if (c.includes('stories')) return 'tag-children-stories';
+      return 'tag-children-fiction';
+    }
+
+    // Calculate due date (30 days from loan date) and overdue status
+    function getDueStatus(dateStr) {
+      if (!dateStr) return { isOverdue: false, text: '' };
+      const parsedDate = new Date(dateStr);
+      if (isNaN(parsedDate.getTime())) {
+        return { isOverdue: false, text: '' };
+      }
+      const dueDate = new Date(parsedDate.getTime() + (30 * 24 * 60 * 60 * 1000));
+      const now = new Date();
+      const isOverdue = now > dueDate;
+      
+      const dueFormatted = dueDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+      return {
+        isOverdue: isOverdue,
+        text: isOverdue ? `Overdue (Due ${dueFormatted})` : `Due ${dueFormatted}`
+      };
+    }
+
+    function renderBooks() {
+      const query = searchInput.value.trim().toLowerCase();
+      clearSearchBtn.style.display = query ? 'block' : 'none';
+
+      const filtered = allBooks.filter(book => {
+        if (selectedStatus !== 'ALL' && book.status !== selectedStatus) {
+          return false;
+        }
+        if (selectedCategory !== 'ALL' && book.category !== selectedCategory) {
+          return false;
+        }
+        if (query) {
+          const combined = `${book.title} ${book.subtitle} ${book.publisher || ''} ${book.category}`.toLowerCase();
+          return combined.includes(query);
+        }
+        return true;
+      });
+
+      // Sort alphabetically by Title (A -> Z, case-insensitive)
+      filtered.sort((a, b) => {
+        const titleA = (a.title || '').trim().toLowerCase();
+        const titleB = (b.title || '').trim().toLowerCase();
+        return titleA.localeCompare(titleB, undefined, { numeric: true, sensitivity: 'base' });
+      });
+
+      resultsCount.innerText = `Showing ${filtered.length} of ${allBooks.length} books`;
+
+      booksContainer.innerHTML = '';
+      if (filtered.length === 0) {
+        emptyState.style.display = 'block';
+        return;
+      }
+      emptyState.style.display = 'none';
+
+      filtered.forEach(book => {
+        const card = document.createElement('div');
+        card.className = 'book-card';
+        const isAvailable = book.status === 'Available';
+
+        const borrowerName = getPublicBorrowerName(book.checkedOutBy);
+
+        card.innerHTML = `
+          <!-- Column 1: Title -->
+          <div class="col-title">
+            <h3 class="book-title">${book.title}</h3>
+          </div>
+
+          <!-- Column 2: Subtitle -->
+          <div class="col-subtitle">
+            ${book.subtitle || '<span style="opacity:0.35;">—</span>'}
+          </div>
+
+          <!-- Column 3: Publisher / Author -->
+          <div class="col-publisher">
+            ${book.publisher || '<span style="opacity:0.35;">—</span>'}
+          </div>
+
+          <!-- Column 4: Category -->
+          <div class="col-category">
+            <span class="category-tag ${getTagClass(book.category)}">
+              ${formatCategoryName(book.category)}
+            </span>
+          </div>
+
+          <!-- Column 5: Status -->
+          <div class="col-status">
+            ${isAvailable ? `
+              <span class="status-text-available">Available</span>
+            ` : `
+              <span class="status-text-borrowed">Borrowed</span>
+              ${borrowerName ? `<span class="borrower-subname">by ${borrowerName}</span>` : ''}
+            `}
+          </div>
+
+          <!-- Column 6: Action Button -->
+          <div class="col-action">
+            ${isAvailable ? `
+              <button class="btn-action btn-checkout" data-id="${book.id}">Check Out</button>
+            ` : `
+              <button class="btn-action btn-return" data-id="${book.id}">Return</button>
+            `}
+          </div>
+        `;
+
+        card.querySelector('.btn-action').addEventListener('click', () => {
+          handleAction(book);
+        });
+
+        booksContainer.appendChild(card);
+      });
+    }
+
+    function handleAction(book) {
+      if (book.status === 'Available') {
+        activeBookId = book.id;
+        modalBookTitle.innerText = book.title;
+        modalBookSubtitle.innerText = book.subtitle || book.category;
+        
+        // Auto-fill member profile if saved on this device
+        const savedPhone = localStorage.getItem('library_member_phone') || '';
+        const savedName = localStorage.getItem('library_member_name') || '';
+        const savedAddress = localStorage.getItem('library_member_address') || '';
+        const rememberBadge = document.getElementById('member-remember-badge');
+        
+        userPhoneInput.value = savedPhone;
+        userNameInput.value = savedName;
+        userAddressInput.value = savedAddress;
+
+        if (savedPhone && savedName) {
+          if (rememberBadge) rememberBadge.style.display = 'block';
+          // Hide address field for returning members to keep checkout 1-tap
+          if (addressFormGroup) addressFormGroup.style.display = 'none';
+        } else {
+          if (rememberBadge) rememberBadge.style.display = 'none';
+          if (addressFormGroup) addressFormGroup.style.display = 'block';
+        }
+
+        checkoutModal.classList.add('open');
+        setTimeout(() => {
+          if (!savedPhone) userPhoneInput.focus();
+          else if (!savedName) userNameInput.focus();
+          else modalSubmitBtn.focus();
+        }, 150);
+      } else {
+        if (confirm(`Confirm returning "${book.title}"?`)) {
+          returnBook(book.id);
+        }
+      }
+    }
+
+    
+    // Ensure only digits are typed in phone field
+    userPhoneInput.addEventListener('input', () => {
+      userPhoneInput.value = userPhoneInput.value.replace(/\D/g, '').slice(0, 10);
+    });
+
+    // Auto-lookup name if they type a phone number that borrowed before
+    userPhoneInput.addEventListener('input', () => {
+      const typedPhone = userPhoneInput.value.trim();
+      if (typedPhone.length >= 7) {
+        // Search past loans for this phone number
+        for (const b of allBooks) {
+          if (b.checkedOutBy && b.checkedOutBy.includes(typedPhone)) {
+            const parts = b.checkedOutBy.split('(');
+            const foundName = parts[0].trim();
+            if (foundName && !userNameInput.value.trim()) {
+              userNameInput.value = foundName;
+              break;
+            }
+          }
+        }
+      }
+    });
+
+    function submitCheckout() {
+      const phone = userPhoneInput.value.trim();
+      const name = userNameInput.value.trim();
+      const address = userAddressInput.value.trim();
+
+      const cleanedPhone = phone.replace(/\D/g, '');
+      if (!cleanedPhone || cleanedPhone.length !== 10) {
+        alert('Please enter a valid 10-digit phone number (numbers only).');
+        userPhoneInput.focus();
+        return;
+      }
+      if (!name) {
+        alert('Please enter your Full Name.');
+        userNameInput.focus();
+        return;
+      }
+      if (!localStorage.getItem('library_member_address') && !address) {
+        alert('Please enter your Address.');
+        userAddressInput.focus();
+        return;
+      }
+
+      // Remember member info on this device
+      localStorage.setItem('library_member_phone', cleanedPhone);
+      localStorage.setItem('library_member_name', name);
+      if (address) localStorage.setItem('library_member_address', address);
+
+      const book = allBooks.find(b => b.id === activeBookId);
+      if (!book) return;
+
+      // Remember member info on this device for 1-tap future visits
+      localStorage.setItem('library_member_phone', cleanedPhone);
+      localStorage.setItem('library_member_name', name);
+
+      const borrowerInfo = `${name} (${cleanedPhone})`;
+      const today = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+
+      book.status = 'Checked Out';
+      book.checkedOutBy = borrowerInfo;
+      book.checkedOutDate = today;
+      localStorage.setItem('home_library_books', JSON.stringify(allBooks));
+
+      // Live Sync to Google Sheet
+      sendGoogleSheetUpdate({
+        action: 'checkout',
+        title: book.title,
+        borrower: name,
+        phone: cleanedPhone,
+        address: address || localStorage.getItem('library_member_address') || ''
+      });
+
+      checkoutModal.classList.remove('open');
+      showToast(`✓ Checked out "${book.title}" to ${name} (Synced!)`);
+      renderBooks();
+    }
+
+    function returnBook(bookId) {
+      const book = allBooks.find(b => b.id === bookId);
+      if (!book) return;
+
+      // Live Sync to Google Sheet
+      sendGoogleSheetUpdate({
+        action: 'return',
+        title: book.title
+      });
+
+      book.status = 'Available';
+      book.checkedOutBy = null;
+      book.checkedOutDate = null;
+      localStorage.setItem('home_library_books', JSON.stringify(allBooks));
+
+      showToast(`✓ Returned "${book.title}" (Synced!)`);
+      renderBooks();
+    }
+
+    // Event listeners
+    searchInput.addEventListener('input', renderBooks);
+    clearSearchBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      searchInput.focus();
+      renderBooks();
+    });
+
+    document.querySelectorAll('.status-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.status-btn').forEach(el => el.classList.remove('active'));
+        btn.classList.add('active');
+        selectedStatus = btn.dataset.status;
+        renderBooks();
+      });
+    });
+
+    modalCancelBtn.addEventListener('click', () => checkoutModal.classList.remove('open'));
+    modalSubmitBtn.addEventListener('click', submitCheckout);
+
+    checkoutModal.addEventListener('click', (e) => {
+      if (e.target === checkoutModal) checkoutModal.classList.remove('open');
+    });
+
+    // Initialize immediately
+    initLibrary();
+  </script>
+</body>
+</html>

@@ -1,0 +1,1672 @@
+[
+  {
+    "id": 1,
+    "title": "Agastya",
+    "subtitle": "Renowned Among the Saptarshi",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 2,
+    "title": "Ancient Temples of India",
+    "subtitle": "A Pilgrimage to Sacred Shrines",
+    "copies": 1,
+    "status": "Available",
+    "category": "History / Biographies",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 3,
+    "title": "Andhaka",
+    "subtitle": "The Dark Lord Who Saw Light",
+    "copies": 2,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 4,
+    "title": "Ayyappan",
+    "subtitle": "The Lord of Shabarimala",
+    "copies": 2,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 5,
+    "title": "Bhagawat",
+    "subtitle": "The Krishna Avatar",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 6,
+    "title": "Bheeshma",
+    "subtitle": "Selflessness Personified",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 7,
+    "title": "Birbal the Genius",
+    "subtitle": "Wit and Wisdom at Akbar's Court",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 8,
+    "title": "Birbal the Wise",
+    "subtitle": "The Adventures of Akbar's Favourite Minister",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 9,
+    "title": "Birbal the Witty",
+    "subtitle": "Tales of Birbal",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 10,
+    "title": "Birbal to the Rescue",
+    "subtitle": "The Master Psychologist",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 11,
+    "title": "Bird Stories",
+    "subtitle": "Jataka Tales of Brains Versus Brawn",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction / Folktales",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 12,
+    "title": "Buddhist Stories",
+    "subtitle": "Amar Chitra Katha Folktales Series",
+    "copies": 1,
+    "status": "Available",
+    "category": "Comics",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 13,
+    "title": "Choice of Friends",
+    "subtitle": "Tales from the Hitopadesha",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 14,
+    "title": "Dasha Avatar",
+    "subtitle": "The Ten Incarnations of Lord Vishnu",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 15,
+    "title": "Deer Stories",
+    "subtitle": "The Gentle Wisdom of the Jataka",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction / Folktales",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 16,
+    "title": "Devas",
+    "subtitle": "Stories of Vedic Deities",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 17,
+    "title": "Dhruva and Ashtavakra",
+    "subtitle": "They Reached for the Skies",
+    "copies": 2,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 18,
+    "title": "Divine Beings",
+    "subtitle": "Airavata, Jatayu, Nandi & Others",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 19,
+    "title": "Divine Rivers",
+    "subtitle": "Stories Of Origin",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 20,
+    "title": "Drona",
+    "subtitle": "Valiant Archer, Supreme Teacher",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 21,
+    "title": "Elephanta",
+    "subtitle": "The Island of Shiva",
+    "copies": 2,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 22,
+    "title": "Elephant Stories",
+    "subtitle": "Jataka Tales of Nobility",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction / Folktales",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 23,
+    "title": "Funny Folktales",
+    "subtitle": "Amar Chitra Katha Folktales Series",
+    "copies": 1,
+    "status": "Available",
+    "category": "Comics",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 24,
+    "title": "Ganesha",
+    "subtitle": "The Remover of All Obstacles",
+    "copies": 2,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 25,
+    "title": "Ganesha and the Moon",
+    "subtitle": "And Other Stories",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 26,
+    "title": "Gopal the Jester",
+    "subtitle": "The Brilliant Bengali Wit",
+    "copies": 1,
+    "status": "Available",
+    "category": "History / Biographies",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 27,
+    "title": "Hanuman",
+    "subtitle": "The Epitome of Devotion and Courage",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 28,
+    "title": "Harischandra",
+    "subtitle": "The King Who Chose Rags Over Riches",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 29,
+    "title": "Indra and Shibi",
+    "subtitle": "Tales of the Wise Lord of Heaven",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 30,
+    "title": "Kannada Book",
+    "subtitle": "Illya Vyapari (ಇಲಿಯ ವ್ಯಾಪಾರಿ)",
+    "copies": 1,
+    "status": "Available",
+    "category": "Kannada Books",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 31,
+    "title": "Karna",
+    "subtitle": "Brave, Generous, Ill-Fated Prince",
+    "copies": 2,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 32,
+    "title": "Karttikeya",
+    "subtitle": "A Son of Shiva",
+    "copies": 2,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 33,
+    "title": "Krishna and Jarasandha",
+    "subtitle": "Krishna Outsmarts His Fierce Adversary",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 34,
+    "title": "Krishna and Rukmini",
+    "subtitle": "A Love That Will Not Be Denied",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 35,
+    "title": "Lakshmi",
+    "subtitle": "The Goddess of Good Fortune",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 36,
+    "title": "Mahadeva",
+    "subtitle": "Stories from the Shiva Purana",
+    "copies": 2,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 37,
+    "title": "Mahatma Gandhi",
+    "subtitle": "Father of the Nation",
+    "copies": 1,
+    "status": "Available",
+    "category": "History / Biographies",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 38,
+    "title": "Mirabai",
+    "subtitle": "She Gave Her Heart to Krishna",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 39,
+    "title": "Monkey Stories 3-In-1",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction / Folktales",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 40,
+    "title": "Nachiketa",
+    "subtitle": "A Collection of Stories from the Upanishads",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 41,
+    "title": "Nahusha",
+    "subtitle": "He Became the King of Heaven",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 42,
+    "title": "Nandivishala",
+    "subtitle": "Wit and Wisdom from Buddhist Lore",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction / Folktales",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 43,
+    "title": "Prahlad",
+    "subtitle": "A Tale of Devotion from the Bhagawat Purana",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 44,
+    "title": "Rama",
+    "subtitle": "Retold from the Ramayana",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 45,
+    "title": "Raman of Tenali",
+    "subtitle": "The Birbal of the South",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 46,
+    "title": "Raman the Matchless Wit",
+    "subtitle": "The Adventures of a Unique Court Jester",
+    "copies": 1,
+    "status": "Available",
+    "category": "History / Biographies",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 47,
+    "title": "Ravana Humbled",
+    "subtitle": "An Arrogant King Finds New Friends",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 48,
+    "title": "Saraswati",
+    "subtitle": "Stories of the Goddess of Wisdom",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 49,
+    "title": "Sati and Shiva",
+    "subtitle": "Perfection Rewarded",
+    "copies": 2,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 50,
+    "title": "Shakti",
+    "subtitle": "Tales of the Mother Goddess",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 51,
+    "title": "Shiva Parvati",
+    "subtitle": "A Story of Divine Love",
+    "copies": 2,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 52,
+    "title": "Stories of Courage",
+    "subtitle": "Jataka Tales of Valour and Victory",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction / Folktales",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 53,
+    "title": "Surya",
+    "subtitle": "How the Sun God Was Tamed",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 54,
+    "title": "Tales of Balarama",
+    "subtitle": "Valiant Brother of Krishna",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 55,
+    "title": "Tales of Durga",
+    "subtitle": "Tales of the Mother Goddess",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 56,
+    "title": "Tales of Giants and Demons",
+    "subtitle": "5-in-1",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction / Folktales",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 57,
+    "title": "Tales of Narada",
+    "subtitle": "Tales of Devotion and Rivalry",
+    "copies": 2,
+    "status": "Available",
+    "category": "History / Biographies",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 58,
+    "title": "Tales of Revolutionaries",
+    "subtitle": "5-in-1",
+    "copies": 1,
+    "status": "Available",
+    "category": "History / Biographies",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 59,
+    "title": "Tales of Shiva",
+    "subtitle": "The Mighty Lord of Kailasa",
+    "copies": 2,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 60,
+    "title": "Thanjavur",
+    "subtitle": "City of Brihadeeswara",
+    "copies": 1,
+    "status": "Available",
+    "category": "History / Biographies",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 61,
+    "title": "The Blue Umbrella",
+    "subtitle": "Stories by Ruskin Bond",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 62,
+    "title": "The Churning of the Ocean",
+    "subtitle": "Vishnu Saves Creation",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 63,
+    "title": "The Fool's Disciples",
+    "subtitle": "Tales of Sense and Nonsense",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction / Folktales",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 64,
+    "title": "The Giant and the Dwarf",
+    "subtitle": "A Jataka Tale of Wit and Wisdom",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction / Folktales",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 65,
+    "title": "The Gita",
+    "subtitle": "The Song of Eternal Wisdom",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 66,
+    "title": "The Hidden Treasure",
+    "subtitle": "Wisdom Wins a War",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction / Folktales",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 67,
+    "title": "The Inimitable Birbal",
+    "subtitle": "A Friend, Philosopher and Guide to Akbar",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 68,
+    "title": "The Pandava Princes",
+    "subtitle": "Pandu's Five Brave Sons",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 69,
+    "title": "The Three Gurus",
+    "subtitle": "Guru Tegh Bahadur, Guru Nanak, Guru Gobind Singh",
+    "copies": 1,
+    "status": "Available",
+    "category": "History / Biographies",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 70,
+    "title": "Tripura",
+    "subtitle": "The Three Impregnable Cities of Maya",
+    "copies": 3,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 71,
+    "title": "Tulsidas",
+    "subtitle": "The Poet Who Wrote Ram-Charit-Manas",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 72,
+    "title": "Uloopi",
+    "subtitle": "The Naga Princess Who Fell in Love with Arjuna",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 73,
+    "title": "Valmiki's Ramayana",
+    "subtitle": "The Great Indian Epic",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 74,
+    "title": "Vidyasagar",
+    "subtitle": "Scholar and Social Reformer of Bengal",
+    "copies": 1,
+    "status": "Available",
+    "category": "History / Biographies",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 75,
+    "title": "Vikramaditya",
+    "subtitle": "Courage and Honour Win the Day",
+    "copies": 1,
+    "status": "Available",
+    "category": "History / Biographies",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 76,
+    "title": "Vishwamitra",
+    "subtitle": "The King Who Became an Ascetic",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 77,
+    "title": "Vivekananda",
+    "subtitle": "He Kindled the Spirit of Modern India",
+    "copies": 1,
+    "status": "Available",
+    "category": "Biographies / Spiritual",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 78,
+    "title": "Pictorial Mahabharata 1",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 79,
+    "title": "Pictorial Mahabharata 2",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 80,
+    "title": "Pictorial Mahabharata 3",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 81,
+    "title": "Pictorial Mahabharata 4",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 82,
+    "title": "Pictorial Mahabharata 5",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 83,
+    "title": "Pictorial Stories for Children 11",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Stories",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 84,
+    "title": "Pictorial Stories for Children 13",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Stories",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 85,
+    "title": "Pictorial Stories for Children 14",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Stories",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 86,
+    "title": "Pictorial Stories for Children 18",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Stories",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 87,
+    "title": "Pictorial Stories for Children 22",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Stories",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 88,
+    "title": "Pictorial Stories for Children 2",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Stories",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 89,
+    "title": "Pictorial Stories for Children 4",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Stories",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 90,
+    "title": "Pictorial Stories for Children 7",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Stories",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 91,
+    "title": "Pictorial Stories for Children 8",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Stories",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 92,
+    "title": "Pictorial Stories for Children 17",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Stories",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 93,
+    "title": "Pictorial Stories for Children 20",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Stories",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 94,
+    "title": "Pictorial Stories for Children 23",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Stories",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 95,
+    "title": "Pictorial Stories for Children 25",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Stories",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 96,
+    "title": "Pictorial Stories for Children 1",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Stories",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 97,
+    "title": "Pictorial Stories for Children 6",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Stories",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 98,
+    "title": "Pictorial Stories for Children 10",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Stories",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 99,
+    "title": "In the Month of Kislev",
+    "subtitle": "A Story for Hanukkah",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 100,
+    "title": "Encyclopedia Brown Cracks the Case",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 101,
+    "title": "Chhota Bheem in The Magical Stairway",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Comics",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 102,
+    "title": "Dhruva",
+    "subtitle": "The Story of the Pole Star",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 103,
+    "title": "Chaiwala!",
+    "subtitle": "The TD Grade One Book Giveaway",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 104,
+    "title": "My Little Baby Bear",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 105,
+    "title": "Enid Blyton - Happy Days!",
+    "subtitle": "The Adventures of Binkle and Flip",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 106,
+    "title": "Atharva Veda",
+    "subtitle": "Stories for Children",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 107,
+    "title": "Suppandi 7",
+    "subtitle": "Fire Away!",
+    "copies": 1,
+    "status": "Available",
+    "category": "Comics",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 108,
+    "title": "Pinki Computer Virus",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Comics",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 109,
+    "title": "Tinkle",
+    "subtitle": "Holiday Special 55",
+    "copies": 1,
+    "status": "Available",
+    "category": "Comics",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 110,
+    "title": "Short Stories from Panchatantra",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 111,
+    "title": "Suppandi 4",
+    "subtitle": "Tickling the Funny Bone",
+    "copies": 1,
+    "status": "Available",
+    "category": "Comics",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 112,
+    "title": "Swami Vivekananda's Childhood",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Biographies / Spiritual",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 113,
+    "title": "Sri Ramakrishna Tells Stories",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 114,
+    "title": "Tales from Ramakrishna",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 115,
+    "title": "The Story of Vivekananda",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Biographies / Spiritual",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 116,
+    "title": "Swami Vivekananda Pictorial",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Biographies / Spiritual",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 117,
+    "title": "Tales from Vivekananda",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Biographies / Spiritual",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 118,
+    "title": "Sri Ramakrishna",
+    "subtitle": "Story for Children",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 119,
+    "title": "Hitopadesha",
+    "subtitle": "Wilco Picture Library",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 120,
+    "title": "Tinkle Double Digest 4",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Comics",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 121,
+    "title": "Tinkle Double Digest 7",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Comics",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 122,
+    "title": "The Champak Story Box Volume 6",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Comics",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 123,
+    "title": "Makkaligagi Sachitra Kathegalu 3",
+    "subtitle": "(Kannada) Pictorial Stories for Children",
+    "copies": 1,
+    "status": "Available",
+    "category": "Kannada Books",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 124,
+    "title": "Makkaligagi Sachitra Kathegalu 4",
+    "subtitle": "(Kannada) Pictorial Stories for Children",
+    "copies": 1,
+    "status": "Available",
+    "category": "Kannada Books",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 125,
+    "title": "Makkaligagi Sachitra Kathegalu 5",
+    "subtitle": "(Kannada) Pictorial Stories for Children",
+    "copies": 1,
+    "status": "Available",
+    "category": "Kannada Books",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 126,
+    "title": "Makkaligagi Sachitra Kathegalu 7",
+    "subtitle": "(Kannada) Pictorial Stories for Children",
+    "copies": 1,
+    "status": "Available",
+    "category": "Kannada Books",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 127,
+    "title": "Makkaligagi Sachitra Kathegalu 8",
+    "subtitle": "(Kannada) Pictorial Stories for Children",
+    "copies": 1,
+    "status": "Available",
+    "category": "Kannada Books",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 128,
+    "title": "Makkaligagi Sachitra Kathegalu 10",
+    "subtitle": "(Kannada) Pictorial Stories for Children",
+    "copies": 1,
+    "status": "Available",
+    "category": "Kannada Books",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 129,
+    "title": "Makkaligagi Sachitra Kathegalu 11",
+    "subtitle": "(Kannada) Pictorial Stories for Children",
+    "copies": 1,
+    "status": "Available",
+    "category": "Kannada Books",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 130,
+    "title": "Makkaligagi Sachitra Kathegalu 12",
+    "subtitle": "(Kannada) Pictorial Stories for Children",
+    "copies": 1,
+    "status": "Available",
+    "category": "Kannada Books",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 131,
+    "title": "Makkaligagi Sachitra Kathegalu 13",
+    "subtitle": "(Kannada) Pictorial Stories for Children",
+    "copies": 1,
+    "status": "Available",
+    "category": "Kannada Books",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 132,
+    "title": "Makkaligagi Sachitra Kathegalu 15",
+    "subtitle": "(Kannada) Pictorial Stories for Children",
+    "copies": 1,
+    "status": "Available",
+    "category": "Kannada Books",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 133,
+    "title": "Makkaligagi Sachitra Kathegalu 1",
+    "subtitle": "(Kannada) Pictorial Stories for Children",
+    "copies": 1,
+    "status": "Available",
+    "category": "Kannada Books",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 134,
+    "title": "Makkaligagi Sachitra Kathegalu 2",
+    "subtitle": "(Kannada) Pictorial Stories for Children",
+    "copies": 1,
+    "status": "Available",
+    "category": "Kannada Books",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 135,
+    "title": "Makkaligagi Sachitra Kathegalu 6",
+    "subtitle": "(Kannada) Pictorial Stories for Children",
+    "copies": 1,
+    "status": "Available",
+    "category": "Kannada Books",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 136,
+    "title": "Makkaligagi Sachitra Kathegalu 9",
+    "subtitle": "(Kannada) Pictorial Stories for Children",
+    "copies": 1,
+    "status": "Available",
+    "category": "Kannada Books",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 137,
+    "title": "Makkaligagi Sachitra Kathegalu 14",
+    "subtitle": "(Kannada) Pictorial Stories for Children",
+    "copies": 1,
+    "status": "Available",
+    "category": "Kannada Books",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 138,
+    "title": "Vikata Kavi Tenali Rama",
+    "subtitle": "(Kannada)",
+    "copies": 1,
+    "status": "Available",
+    "category": "Kannada Books",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 139,
+    "title": "Chinnara Chitra Ramayana",
+    "subtitle": "(Kannada)",
+    "copies": 1,
+    "status": "Available",
+    "category": "Kannada Books",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 140,
+    "title": "The Bird with Golden Wings",
+    "subtitle": "Stories of Wit and Magic - Sudha Murty",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 141,
+    "title": "How the Mango got its Magic",
+    "subtitle": "Sudha Murty",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 142,
+    "title": "The Sage with Two Horns",
+    "subtitle": "Unusual Tales from Mythology - Sudha Murty",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 143,
+    "title": "The Magic of the Lost Story",
+    "subtitle": "Sudha Murty",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 144,
+    "title": "How I Taught my Grandmother to Read and other stories",
+    "subtitle": "Sudha Murty",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 145,
+    "title": "The Magic of the Lost Temple",
+    "subtitle": "Sudha Murty",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 146,
+    "title": "Girish Karnad is Karadi the bear",
+    "subtitle": "Birth Of Krishna",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 147,
+    "title": "Girish Karnad is Karadi the bear",
+    "subtitle": "Hanuman, the Mighty",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 148,
+    "title": "Girish Karnad is Karadi the bear",
+    "subtitle": "Krishna's Conquests",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 149,
+    "title": "Girish Karnad is Karadi the bear",
+    "subtitle": "Young Hanuman",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 150,
+    "title": "Hindu Rites, Rituals, Customs & Traditions",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 151,
+    "title": "Values for me - Sympathy",
+    "subtitle": "Build Your Character & Conscience",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Educational / Values",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 152,
+    "title": "Virtue Stories - When in doubt, tell the Truth",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Educational / Values",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 153,
+    "title": "Vivekananda",
+    "subtitle": "Amar Chitra Katha",
+    "copies": 1,
+    "status": "Available",
+    "category": "Comics",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 154,
+    "title": "The Story of Sarada Devi",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Biographies / Spiritual",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 155,
+    "title": "Tinkle",
+    "subtitle": "Where Learning Meets Fun",
+    "copies": 1,
+    "status": "Available",
+    "category": "Comics",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 156,
+    "title": "Hanuman to the Rescue",
+    "subtitle": "Hanuman Brings the Sanjeevani",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 157,
+    "title": "Birbal, The Wise",
+    "subtitle": "Witty Stories for Children",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 158,
+    "title": "Shani Dev",
+    "subtitle": "God of Justice",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 159,
+    "title": "Legend and Lore",
+    "subtitle": "Regional Folktales of India",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction / Folktales",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 160,
+    "title": "Tinkle Presents Suppandi & Friends",
+    "subtitle": "Let the madness begin!",
+    "copies": 1,
+    "status": "Available",
+    "category": "Comics",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 161,
+    "title": "My First Hanuman Chalisa",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 162,
+    "title": "Jagannatha of Puri",
+    "subtitle": "Dreamt by a King, Sculpted by the Gods",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 163,
+    "title": "Chandamama Stories 1",
+    "subtitle": "Illustrated Stories of Infotainment for Children & Adults",
+    "copies": 1,
+    "status": "Available",
+    "category": "Children's Fiction",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 164,
+    "title": "Tinkle Origins",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Comics",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 165,
+    "title": "The Mahabharata in Rhyme",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 166,
+    "title": "Scholastic Book of Hindu Gods and Goddesses",
+    "subtitle": "",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  },
+  {
+    "id": 167,
+    "title": "Devdutt Pattanaik - Vahana",
+    "subtitle": "Gods and Their Favourites",
+    "copies": 1,
+    "status": "Available",
+    "category": "Hindu Deities",
+    "checkedOutBy": null,
+    "checkedOutDate": null
+  }
+]
